@@ -8,10 +8,10 @@ Install skills using the skills CLI:
 
 ```bash
 # Install all skills from this repository
-npx skills add technophile-04/sandgarden-skills
+npx skills add buidlguidl/sandgarden-skills
 
 # Install a specific skill
-npx skills add technophile-04/sandgarden-skills -s code-reviewer
+npx skills add buidlguidl/sandgarden-skills --skills code-reviewer
 ```
 
 ## Available Skills
@@ -21,6 +21,7 @@ npx skills add technophile-04/sandgarden-skills -s code-reviewer
 Review TypeScript, React, and Next.js code against high standards for clarity, simplicity, and maintainability. Provides brutally honest but supportive feedback following best practices.
 
 **Use when:**
+
 - Code has just been written or modified
 - You want explicit code review
 - Refactoring has been completed

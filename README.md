@@ -27,7 +27,7 @@ Review TypeScript, React, and Next.js code against high standards for clarity, s
 - Refactoring has been completed
 - New features or components have been implemented
 
-### pr-creator
+### pr-create
 
 Create a GitHub PR with your changes. Analyzes commits, generates a descriptive title and summary, and creates the PR using the `gh` CLI.
 

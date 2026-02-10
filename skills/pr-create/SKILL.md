@@ -11,7 +11,7 @@ If no other instructions are provided, create a PR from the current branch to th
 
 - Verify the current branch is NOT the default branch
 - Verify there are commits ahead of the default branch. If there are uncommitted changes, suggest committing them first
-- Inspect the git diff (against the default branch) and commit history to understand the changes
+- Run `git diff <default-branch>...HEAD` and `git log <default-branch>..HEAD` to understand ALL changes on the branch, not just the latest commit.
 - If the PR is already created, just push the changes to the branch
 
 ## Format of the PR

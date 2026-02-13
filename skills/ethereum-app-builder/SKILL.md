@@ -29,11 +29,11 @@ If the user has no preference, use Hardhat.
 
 ### Step 3: Extensions (optional)
 
-Ask if they want to add an extension for extra functionality.
+Ask the user: "Would you like me to fetch the available extensions to see if any fit your project?"
 
-- If the user wants an extension or wants to see options, fetch the extension list from the sources in `references/extensions.md`
-- If unsure or no preference, skip extensions entirely — don't force a choice
-- Extensions add features like ERC-20 tokens, subgraphs, on-chain SVGs, etc.
+- **If the user says yes:** Fetch the extension list from the sources in `references/extensions.md`, then suggest which extension(s) would be the best fit based on what the user is building. Present a short summary of the relevant options and recommend one.
+- **If the user says no or has no preference:** Skip extensions entirely — use no extension.
+- **Default behavior:** No extension. Only add one if the user explicitly opts in after seeing the list.
 
 When fetching extensions, read the source files to get current extension names and descriptions. For more detail on a specific extension, fetch its README using the URL pattern in `references/extensions.md`.
 
@@ -42,12 +42,12 @@ When fetching extensions, read the source files to get current extension names a
 Build and execute the command:
 
 ```
-npx create-eth@latest -e <extension> --<framework> <project-name>
+npx create-eth@latest -s <framework> -e <extension> <project-name>
 ```
 
 Flag reference:
 
-- `--hardhat` or `--foundry` — select framework
+- `-s hardhat` or `-s foundry` — select Solidity framework
 - `-e <extension>` — add an extension (omit flag entirely if no extension)
 - Last argument is the project name
 
@@ -55,10 +55,10 @@ Examples:
 
 ```bash
 # Hardhat, no extension
-npx create-eth@latest --hardhat my-dapp
+npx create-eth@latest -s hardhat my-dapp
 
 # Foundry with an extension
-npx create-eth@latest -e erc-20 --foundry token-app
+npx create-eth@latest -s foundry -e erc-20 token-app
 ```
 
 ### Step 5: Quickstart

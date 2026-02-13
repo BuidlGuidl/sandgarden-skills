@@ -5,7 +5,7 @@ description: "Scaffold and build Ethereum dApps using create-eth (Scaffold-ETH 2
 
 # Ethereum App Builder
 
-Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the user through project setup, then hand off to the scaffolded project's built-in `AGENTS.md` for development.
+Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the user through project setup, scaffold it, then implement the user's idea using the project's built-in `AGENTS.md` as the development guide.
 
 ## Scaffold Wizard
 
@@ -61,9 +61,20 @@ npx create-eth@latest -s hardhat my-dapp
 npx create-eth@latest -s foundry -e erc-20 token-app
 ```
 
-### Step 5: Quickstart
+### Step 5: Implement the User's Idea
 
-After scaffolding completes, guide the user through the quickstart. Three terminals are needed:
+After scaffolding completes, **read the project's `AGENTS.md` file** (`<project-name>/AGENTS.md`). This file contains all the information you need about the scaffolded repo — smart contract patterns, frontend hooks/components, deployment workflows, code style conventions, and project structure.
+
+Using `AGENTS.md` as your guide, implement the idea the user described in their first prompt:
+
+1. **Read `AGENTS.md`** — understand the project structure, available hooks, components, and conventions before writing any code.
+2. **Write smart contracts** — implement the on-chain logic for the user's idea, following the patterns described in `AGENTS.md`.
+3. **Build the frontend** — create/modify pages and components to interact with the contracts, using the hooks and components documented in `AGENTS.md`.
+4. **Verify everything compiles** — make sure contracts compile and the frontend builds without errors.
+
+### Step 6: Quickstart
+
+After implementation, guide the user through the quickstart. Three terminals are needed:
 
 1. **Start local chain:**
 
@@ -91,7 +102,7 @@ When the user gives minimal input (e.g., "build me an ethereum app"):
 - Project name: ask the user or infer from context
 - Framework: Hardhat
 - Extension: none
-- Run quickstart immediately after scaffold
+- Implement the idea and run quickstart after scaffold
 
 ## Extension Discovery
 
@@ -99,11 +110,10 @@ When the user wants an extension, consult `references/extensions.md` for URLs to
 
 ## Post-Scaffold Development
 
-After scaffolding, the generated project includes an `AGENTS.md` file with comprehensive development guidance covering:
+The generated project's `AGENTS.md` is your single source of truth for all development within the scaffolded repo. Always read it before making changes. It covers:
 
+- Project structure and file locations
 - Smart contract development patterns
 - Frontend hooks and components
 - Deployment workflows
 - Code style conventions
-
-Point the user to this file for all post-scaffold development questions.

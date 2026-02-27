@@ -41,10 +41,10 @@ git push origin upstream-main --force
 ```bash
 git checkout main
 git pull origin main
-git checkout -b backmerge-upstream
+git checkout -b backmerge-DD-MM-YY
 ```
 
-If `backmerge-upstream` already exists, ask the user whether to delete and recreate it or use a different name (e.g. `backmerge-upstream-YYYY-MM-DD`).
+Use today's date for the branch name (e.g. `backmerge-27-02-26`). If the branch already exists, ask the user whether to delete and recreate it.
 
 ## Step 3: Merge upstream-main
 
@@ -103,7 +103,7 @@ git commit -m "chore: add changeset for backmerge"
 ## Step 6: Push and create PR
 
 ```bash
-git push origin backmerge-upstream
+git push origin backmerge-DD-MM-YY
 ```
 
 The PR title format is `backmerge DD-MM-YY` using today's date. The body lists the upstream SE-2 PRs being merged.

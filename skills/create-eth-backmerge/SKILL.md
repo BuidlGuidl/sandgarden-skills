@@ -54,12 +54,15 @@ git merge upstream-main
 
 ## Step 4: Resolve conflicts
 
+**Key concept — SE-2 root vs create-eth structure:** SE-2 is a monorepo with files at root level. In create-eth, those files live inside `templates/base/` (shared) or `templates/<solidity_framework>/` (Hardhat/Foundry-specific). SE-2 backmerges should almost never modify the root of create-eth — upstream changes need to land in the corresponding template directory instead.
+
 If merge conflicts occur:
 
 1. List all conflicted files with `git diff --name-only --diff-filter=U`
 2. Handle known conflicts automatically:
    - **Root `yarn.lock`**: Reset to ours — `git checkout --ours yarn.lock` then run `yarn install` to regenerate it
    - **Root `package.json`**: Reset to ours — `git checkout --ours package.json`. Then check if `upstream-main` added any new scripts (especially `next:serve` in the template base `package.json`) and manually add them
+   - **Root-level files that belong in templates** (e.g. `AGENTS.md`, `.agents/`): Reset to ours (`git checkout --ours` or `git rm`), then apply the upstream changes to the corresponding file inside `templates/base/` or `templates/<solidity_framework>/`
 3. For all other conflicts, show the conflicted files to the user and help resolve them interactively
 4. After resolving, stage all changes: `git add .`
 5. Complete the merge: `git commit --no-edit`
